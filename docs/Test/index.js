@@ -5,19 +5,27 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 "use strict";
 
-const inpNumBytes = document.createElement("input");
-inpNumBytes.value = 1;
-document.body.appendChild(inpNumBytes);
-const btnAllocate = document.createElement("button");
-btnAllocate.innerHTML = "Allocate";
-document.body.appendChild(btnAllocate);
-let data;
-btnAllocate.addEventListener("click", function () {
-  inpNumBytes.value *= 2;
-  try {
-    data = new ArrayBuffer(inpNumBytes.value);
-  } catch (e) {
-    alert("error");
-    console.error(e);
-  }
+const loadWindow = new Promise(function (resolve, reject) {
+  window.addEventListener("load", function (evt) {
+    resolve(evt);
+  });
+});
+
+loadWindow.then(function (evt) {
+  const inpNumBytes = document.createElement("input");
+  inpNumBytes.value = 1;
+  document.body.appendChild(inpNumBytes);
+  const btnAllocate = document.createElement("button");
+  btnAllocate.innerHTML = "Allocate";
+  document.body.appendChild(btnAllocate);
+  let data;
+  btnAllocate.addEventListener("click", function () {
+    inpNumBytes.value *= 2;
+    try {
+      data = new ArrayBuffer(inpNumBytes.value);
+    } catch (e) {
+      alert("error");
+      console.error(e);
+    }
+  });
 });
