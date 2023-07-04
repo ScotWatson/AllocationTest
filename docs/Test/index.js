@@ -36,7 +36,7 @@ loadWindow.then(function (evt) {
   btnAllocate16GiB.innerHTML = "Allocate 16 GiB";
   btnAllocate16GiB.addEventListener("click", createAllocateFunction(2 ** 34));
   document.body.appendChild(btnAllocate16GiB);
-  let dataArray = [];
+  const dataArray = [];
   const tblAllocated = document.createElement("table");
   document.body.appendChild(tblAllocated);
   refresh();
@@ -60,6 +60,7 @@ loadWindow.then(function (evt) {
     return function () {
       try {
         dataArray.push(new ArrayBuffer(numBytes));
+        console.log(dataArray);
       } catch (e) {
         alert("error");
         console.error(e);
