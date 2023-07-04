@@ -60,7 +60,7 @@ loadWindow.then(function (evt) {
     return function () {
       try {
         dataArray.push(new ArrayBuffer(numBytes));
-        console.log(dataArray);
+        refresh();
       } catch (e) {
         alert("error");
         console.error(e);
