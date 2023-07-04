@@ -38,6 +38,7 @@ loadWindow.then(function (evt) {
   document.body.appendChild(btnAllocate16GiB);
   let dataArray = [];
   const tblAllocated = document.createElement("table");
+  document.body.appendChild(tblAllocated);
   refresh();
   function refresh() {
     tblAllocated.innerHTML = "";
