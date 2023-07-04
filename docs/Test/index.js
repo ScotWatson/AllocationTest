@@ -50,7 +50,7 @@ loadWindow.then(function (evt) {
     for (let i = 0; i < dataArray.length; ++i) {
       const rowEntry = document.createElement("tr");
       const cellRemove = document.createElement("td");
-      const btnRemove = createRemoveButton(index);
+      const btnRemove = createRemoveButton(i);
       cellRemove.appendChild(btnRemove);
       rowEntry.appendChild(cellRemove);
       tblAllocated.appendChild(rowEntry);
@@ -60,11 +60,11 @@ loadWindow.then(function (evt) {
     return function () {
       try {
         dataArray.push(new ArrayBuffer(numBytes));
-        refresh();
       } catch (e) {
         alert("error");
         console.error(e);
       }
+      refresh();
     }
   }
   function createRemoveButton(index) {
