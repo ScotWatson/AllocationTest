@@ -69,7 +69,7 @@ loadWindow.then(function (evt) {
   }
   function createRemoveButton(index) {
     const btn = document.createElement("button");
-    switch (dataArray[index].length) {
+    switch (dataArray[index].byteLength) {
       case (2 ** 29):
         btn.innerHTML = "0.5 GiB";
         break;
