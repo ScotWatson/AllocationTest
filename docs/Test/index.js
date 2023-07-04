@@ -44,7 +44,7 @@ loadWindow.then(function (evt) {
     tblAllocated.innerHTML = "";
     const rowHeader = document.createElement("tr");
     const cellBtnHeader = document.createElement("th");
-    cellBtnHeader.innerHTML = "Remove";
+    cellBtnHeader.innerHTML = "Remove (" + dataArray.length + ")";
     rowHeader.appendChild(cellBtnHeader);
     tblAllocated.appendChild(rowHeader);
     for (let i = 0; i < dataArray.length; ++i) {
